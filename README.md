@@ -16,7 +16,7 @@ This repository contains a Register Transfer Level (RTL) implementation of a **G
     * 2-bit saturating counters for strong/weak Taken/Not-Taken prediction.
 * **Branch Target Buffer (BTB)**:
     * 128 entries.
-    * Structure: Valid Bit (1) | Tag (24) | Target Address (32).
+    * Structure: Valid Bit (1) | Tag (25) | Target Address (32) = **58 bits total**.
 * **Global History**:
     * 7-bit shifting history register (`gout`).
 
@@ -30,7 +30,7 @@ This repository contains a Register Transfer Level (RTL) implementation of a **G
 | `branch` | 1 | Input | **Branch Enable**: Asserted when the current instruction is a branch. |
 | `instruction` | 32 | Input | Current Program Counter (PC) / Instruction Address. |
 | `target` | 32 | Input | Calculated target address (used for updating BTB). |
-| `tag` | 24 | Input | Upper bits of PC used for BTB tag comparison. |
+| `tag` | 25 | Input | Upper bits of PC used for BTB tag comparison. |
 | `nnt` | 1 | Output | **Next prediction**: 1 if Taken, 0 if Not Taken. |
 | `target_addr` | 32 | Output | Predicted target address. Outputs `target_store` on hit, else `PC+4`. |
 | `hit` | 1 | Output | **BTB Hit**: Indicates if the instruction was found in the BTB. |

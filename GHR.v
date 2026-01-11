@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
+// Company:CDAC Trivandrum 
 // Engineer: Ashbin shiju
 // 
 // Create Date: 16.03.2024 11:01:23
@@ -147,29 +147,3 @@ always@(posedge clk)
         end    //!rst
     end    // always
 endmodule
-
-
-
-
-
-
-
-
-
-
-
-
-//output    reg [6:0]index,
-//output    reg [6:0]prev_index,
-//output    reg prev_hit,
-//output    reg valid,
-//output    reg [23:0]tag_store,
-// output   reg [31:0] prev_target,
-//output    reg [31:0] target_store,
-//output  reg [31:0]instr,                              //to store instruction
-//output  reg gin_store,                           // to store T/NT feedback
-//output  reg[1:0] prediction,                          // 2 bit predictor
-//output  reg [6:0]hash,                                // 7 bit hash
-//output  reg [6:0]gout, 
-//output  reg [6:0] prev_hash
-//

@@ -41,3 +41,24 @@ This repository contains a Register Transfer Level (RTL) implementation of a **G
 The design uses a 7-bit index derived from the XOR operation of the instruction address and the global history register:
 ```verilog
 hash = instr[6:0] ^ gout;
+```
+
+### Update Logic
+* **PHT Update**: The table is updated based on the *previous* hash and the actual outcome (`gin`).
+    * If Taken (`gin=1`): Increment counter (saturates at 2'b11).
+    * If Not Taken (`gin=0`): Decrement counter (saturates at 2'b00).
+* **BTB Update**: The BTB is updated when a branch occurs (`branch=1`). It stores the `tag` and `target` at the calculated index.
+
+## 📊 Simulation :
+
+To run the simulation using the provided testbench:
+
+1.  Compile the design and testbench:
+    ```bash
+    iverilog -o ghr_sim GHR.v GHR_tb.v
+    ```
+2.  Run the simulation:
+    ```bash
+    vvp ghr_sim
+    ```
+
